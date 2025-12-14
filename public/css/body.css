@@ -1,0 +1,23 @@
+body{
+    background-color: aqua;
+}
+table, th, td, h3, input, tr, label
+  {
+    border: black;
+    outline-color: black;
+    width: fit-content;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border: 1px solid black;
+    align-items: center;
+    text-align: center;
+    table-layout:fixed;
+    
+  }
+
+tr, td, th, input
+{
+    text-align: center;
+    width:50vw ;
+}

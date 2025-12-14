@@ -1,0 +1,28 @@
+body {
+  background-color: #1346b3; /* Hex code for black */
+}
+
+.home-centre {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;    /* Centers vertically */
+  min-height: 100px;      /* Ensures the container takes full viewport height */
+  font-size: 70px;
+  color: aliceblue;
+}
+.home-login_register{
+    display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;    /* Centers vertically */
+  min-height: 100px;      /* Ensures the container takes full viewport height */
+  font-size: 70px;
+  color: aliceblue;
+}
+.home_login_form{
+    align-items: center;
+    font-size: 20px;
+    color: rgb(215, 218, 220);
+}
+.login_submit_register{
+    size: 20px;
+}

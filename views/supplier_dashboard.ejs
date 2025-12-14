@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>PDMS.Com</title>
+        <link href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css rel="stylesheet"> 
+            <link rel="stylesheet" href="public/css/headerStyle.css"> 
+            <%- include('partials/header.ejs') %>
+    </head>
+    <body>
+        <link rel="stylesheet" href="public/css/home.css">
+        <link rel="stylesheet" href="public/css/navbar1.css">
+        <%- include('partials/navbar1.ejs') %>
+        
+        <Table>
+        <tr>
+            <h2>Add New Product
+                <input type="button" value="Add New Product" onclick="location.href='/addProduct'">
+            </h2>   
+        </tr>
+        <tr>
+            <h2>View Existing Products
+                <input type="button" value="View Existing Products" onclick="location.href='/existingProducts'">
+            </h2>   
+        </tr>
+        </Table>
+    </body>
+    <link rel="stylesheet" href="public/css/footer.css">
+        <%- include('partials/footer.ejs') %>
+</html>

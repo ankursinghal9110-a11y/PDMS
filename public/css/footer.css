@@ -1,0 +1,8 @@
+
+footer {
+    margin-bottom: auto;   /* pushes footer to the bottom */
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}

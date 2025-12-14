@@ -1,0 +1,57 @@
+/*/* Styling the header */
+/*head {
+display: flex;/*
+align-items: center; /* Vertically align items */
+/*text-align: center;/*
+justify-content: space-between; /* Space between logo and text */
+/*padding: 30px 120px;/*
+background-color: #0bb397; /* Optional background color */
+/*}
+h1{
+    width: 100vw;
+    align-items: center;
+    text-align: center;
+    animation: colorChange 10s infinite;
+}
+p{
+    width: 100vw;
+    align-items: center;
+    text-align: center;
+}
+/* Styling the logo */
+/*.logo img {
+display: block;
+    margin: 0 auto;
+   width: auto;
+    height: 60px; /* Adjust logo size 
+}*/
+
+/* Centering the header text */
+/*header-text {
+flex-grow: 1; /* Allow text to take available space */
+/*text-align: center;
+font-size: 20px; /* Adjust font size */
+/*}
+h2{
+    position: relative; 
+    animation: colorChange 10s infinite;
+
+   
+} 
+
+ Keyframes for color animation 
+@keyframes colorChange {
+  0%   { color: red; }
+  25%  { color: orange; }
+  50%  { color: green; }
+  75%  { color: rgb(255, 0, 230); }
+  100% { color: rgb(30, 0, 128); }
+}*/
+.head_main{
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;    /* Centers vertically */
+    min-height: 100px;      /* Ensures the container takes full viewport height */
+    font-size: 70px;
+    color: aliceblue;
+}

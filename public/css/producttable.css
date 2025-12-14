@@ -1,0 +1,43 @@
+/* Basic Responsive Table Styles */
+  table {
+    width: 100%; /* Adjusts to browser width */
+    border-collapse: collapse; /* Merges cell borders */
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+  th, td {
+    border: 1px solid #ddd; /* Border for cells */
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  /* Responsive Adjustments (Example for small screens) */
+  @media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+      display: block; /* Stack elements on small screens */
+    }
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    tr { border: 1px solid #ccc; margin-bottom: 15px; }
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%; /* Space for data-label */
+    }
+    td:before {
+      content: attr(data-label); /* Use data-label attribute */
+      position: absolute;
+      left: 10px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      font-weight: bold;
+    }
+  }

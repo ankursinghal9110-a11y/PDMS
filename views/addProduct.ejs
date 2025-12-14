@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>PDMS.Com</title>
+            <link href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css rel="stylesheet"> 
+            <link rel="stylesheet" href="public/css/headerStyle.css"> 
+            <%- include('partials/header.ejs') %>
+    </head>
+    <body>
+        <link rel="stylesheet" href="public/css/home.css">
+        <link rel="stylesheet" href="public/css/navbar1.css">
+        <%- include('partials/navbar1.ejs') %>
+              
+        
+            <h3>Adding a new product</h3> 
+            <form class="addProduct" action="/add-product" method="POST" enctype="multipart/form-data" >  
+            <table>
+                <tr>
+                    <label for="userType">Choose User Type:</label>
+                    <td><label for="Buyer">Buyer</label></td>
+                    <td><label for="Supplier">Supplier</label></td>
+                    <tr>      
+                        <td><input type="radio" id="Buyer" name="buyerSupplier" value="Buyer"></td>
+                        <td><input type="radio" id="Supplier" name="buyerSupplier" value="Supplier"></td> 
+                    </tr>
+                </tr>
+            <br>
+                <tr>
+                    <td><label for="Code">Product Code</label>
+                    <td><input type="text" id="code" name="code">
+                </tr>
+                <tr>        
+                    <td><label for="name">Product name:</label>
+                    <td><input type="text" id="name" name="name">
+                </tr>      
+                 <tr>    
+                    <td><label for="tradePrice">Product Trade Price:</label>
+                    <td><input type="text" id="tradePrice" name="tradePrice">
+                 </tr>           
+                 <tr>            
+                    <td><label for="rrpPrice">Product RRP:</label>
+                    <td><input type="text" id="rrpPrice" name="rrpPrice">
+                </tr>             
+                <tr>
+                    <td><label for="image">Image:</label>
+                    <td><input type="file" id="image" name="image">
+                </tr> 
+                <tr>                               
+                    <td><input class="addProduct" type="submit" value="submit">
+                </tr>
+
+        </table> 
+    </body>
+    <link rel="stylesheet" href="public/css/footer.css">
+        <%- include('partials/footer.ejs') %> 
+</html>
