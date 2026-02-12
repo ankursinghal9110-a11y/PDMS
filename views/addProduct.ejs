@@ -1,55 +1,81 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>PDMS.Com</title>
-            <link href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css rel="stylesheet"> 
-            <link rel="stylesheet" href="public/css/headerStyle.css"> 
-            <%- include('partials/header.ejs') %>
-    </head>
-    <body>
-        <link rel="stylesheet" href="public/css/home.css">
-        <link rel="stylesheet" href="public/css/navbar1.css">
-        <%- include('partials/navbar1.ejs') %>
-              
-        
-            <h3>Adding a new product</h3> 
-            <form class="addProduct" action="/add-product" method="POST" enctype="multipart/form-data" >  
-            <table>
-                <tr>
-                    <label for="userType">Choose User Type:</label>
-                    <td><label for="Buyer">Buyer</label></td>
-                    <td><label for="Supplier">Supplier</label></td>
-                    <tr>      
-                        <td><input type="radio" id="Buyer" name="buyerSupplier" value="Buyer"></td>
-                        <td><input type="radio" id="Supplier" name="buyerSupplier" value="Supplier"></td> 
-                    </tr>
-                </tr>
-            <br>
-                <tr>
-                    <td><label for="Code">Product Code</label>
-                    <td><input type="text" id="code" name="code">
-                </tr>
-                <tr>        
-                    <td><label for="name">Product name:</label>
-                    <td><input type="text" id="name" name="name">
-                </tr>      
-                 <tr>    
-                    <td><label for="tradePrice">Product Trade Price:</label>
-                    <td><input type="text" id="tradePrice" name="tradePrice">
-                 </tr>           
-                 <tr>            
-                    <td><label for="rrpPrice">Product RRP:</label>
-                    <td><input type="text" id="rrpPrice" name="rrpPrice">
-                </tr>             
-                <tr>
-                    <td><label for="image">Image:</label>
-                    <td><input type="file" id="image" name="image">
-                </tr> 
-                <tr>                               
-                    <td><input class="addProduct" type="submit" value="submit">
-                </tr>
+<head>
+    <title>Add Product - PDMS.Com</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/headerStyle.css"> 
+    <link rel="stylesheet" href="/public/css/navbar.css">
+    <link rel="stylesheet" href="/public/css/footer.css">
+</head>
+<body>
+    <!-- Header -->
+    <%- include('partials/header.ejs') %>
 
-        </table> 
-    </body>
-    <link rel="stylesheet" href="public/css/footer.css">
-        <%- include('partials/footer.ejs') %> 
+    <!-- Navbar -->
+    <%- include('partials/navbar2.ejs') %>
+
+    <!-- Main Container -->
+    <div class="container mt-4">
+        <h2>Welcome, <%= username %>!</h2>
+        <h3 class="mt-3">Add New Product</h3>
+
+        <form action="/add-product" method="POST" enctype="multipart/form-data">
+            
+            <!-- Product Code -->
+            <div class="mb-3">
+                <label for="code" class="form-label">Product Code</label>
+                <input type="text" id="code" name="code" class="form-control" required>
+            </div>
+
+            <!-- Product Name -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Product Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <!-- Product Category -->
+            <div class="mb-3">
+                <label for="productGroup" class="form-label">Product Category</label>
+                <select id="productGroup" name="productGroup" class="form-select" required>
+                    <option value="">Select Category</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Stationery">Stationery</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Software">Software</option>
+                    <option value="Kitchenware">Kitchenware</option>
+                    <option value="Automotive">Automotive</option>
+                    <option value="Textiles">Textiles</option>
+                    <option value="Tools">Tools</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                </select>
+            </div>
+
+            <!-- Trade Price -->
+            <div class="mb-3">
+                <label for="tradePrice" class="form-label">Trade Price</label>
+                <input type="number" step="0.01" id="tradePrice" name="tradePrice" class="form-control" required>
+            </div>
+
+            <!-- RRP Price -->
+            <div class="mb-3">
+                <label for="rrpPrice" class="form-label">RRP Price</label>
+                <input type="number" step="0.01" id="rrpPrice" name="rrpPrice" class="form-control" required>
+            </div>
+
+            <!-- Product Image -->
+            <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="file" id="image" name="image" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <%- include('partials/footer.ejs') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

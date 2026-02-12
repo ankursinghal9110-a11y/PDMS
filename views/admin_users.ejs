@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Users</title>
+</head>
+<body>
+    <h2>User Management</h2>
+    <a href="/admin">⬅ Back to Dashboard</a>
+
+    <h3>Add New User</h3>
+    <form action="/admin/users/add" method="POST">
+        <select name="usertype" required>
+            <option value="admin">Admin</option>
+            <option value="buyer">Buyer</option>
+            <option value="supplier">Supplier</option>
+        </select>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Add User</button>
+    </form>
+
+    <h3>Existing Users</h3>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Actions</th>
+        </tr>
+
+        <% users.forEach(user => { %>
+        <tr>
+            <form action="/admin/users/update/<%= user.id %>" method="POST">
+                <td><%= user.id %></td>
+                <td>
+                    <select name="usertype">
+                        <option value="admin" <%= user.usertype === 'admin' ? 'selected' : '' %>>Admin</option>
+                        <option value="buyer" <%= user.usertype === 'buyer' ? 'selected' : '' %>>Buyer</option>
+                        <option value="supplier" <%= user.usertype === 'supplier' ? 'selected' : '' %>>Supplier</option>
+                    </select>
+                </td>
+                <td><input type="text" name="username" value="<%= user.username %>"></td>
+                <td><input type="email" name="email" value="<%= user.email %>"></td>
+                <td><input type="text" name="password" value="<%= user.password %>"></td>
+                <td>
+                    <button type="submit">Update</button>
+                    <a href="/admin/users/delete/<%= user.id %>" onclick="return confirm('Delete user?')">Delete</a>
+                </td>
+            </form>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

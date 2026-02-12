@@ -1,28 +1,49 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>PDMS.Com</title>
-        <link href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css rel="stylesheet"> 
-            <link rel="stylesheet" href="public/css/headerStyle.css"> 
-            <%- include('partials/header.ejs') %>
-    </head>
-    <body>
-        <link rel="stylesheet" href="public/css/home.css">
-        <link rel="stylesheet" href="public/css/navbar1.css">
-        <%- include('partials/navbar1.ejs') %>
-        
-        <Table>
-        <tr>
-            <h2>Add New Product
-                <input type="button" value="Add New Product" onclick="location.href='/addProduct'">
-            </h2>   
-        </tr>
-        <tr>
-            <h2>View Existing Products
-                <input type="button" value="View Existing Products" onclick="location.href='/existingProducts'">
-            </h2>   
-        </tr>
-        </Table>
-    </body>
-    <link rel="stylesheet" href="public/css/footer.css">
-        <%- include('partials/footer.ejs') %>
+<head>
+    <title>PDMS.Com</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/public/css/headerStyle.css">
+    <link rel="stylesheet" href="/public/css/home.css">
+    <link rel="stylesheet" href="/public/css/navbar.css">
+    <link rel="stylesheet" href="/public/css/footer.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header -->
+    <%- include('partials/header.ejs') %>
+
+    <!-- Navbar -->
+    <%- include('partials/navbar2.ejs') %>
+
+    <!-- Main Content -->
+    <main class="flex-fill container mt-4 text-center">
+
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-3">
+                <button class="btn btn-primary w-100"
+                        onclick="location.href='/addProduct'">
+                    Add New Product
+                </button>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <button class="btn btn-secondary w-100"
+                        onclick="location.href='/existingProducts'">
+                    View Existing Products
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <%- include('partials/footer.ejs') %>
+
+</body>
 </html>

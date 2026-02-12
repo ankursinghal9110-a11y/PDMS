@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Products</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="/public/css/headerStyle.css">
+    <link rel="stylesheet" href="/public/css/navbar.css">
+    <link rel="stylesheet" href="/public/css/footer.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <%- include('partials/header.ejs') %>
+
+    <!-- Navbar -->
+    <%- include('partials/navbar2.ejs') %>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <h2 class="mb-4">Product Management</h2>
+
+        <a href="/admin" class="btn btn-secondary mb-4">⬅ Back to Dashboard</a>
+
+        <!-- ADD PRODUCT -->
+        <div class="card mb-5">
+            <div class="card-header">Add New Product</div>
+            <div class="card-body">
+                <form action="/admin/products/add" method="POST" enctype="multipart/form-data" class="row g-3">
+                
+                <div class="row-md-4">
+                    <div class="col-md-4">
+                        <input type="text" name="username" class="form-control" placeholder="Owner Username" required>
+                    </div> 
+                 </div>
+
+                <div class="row-md-4">
+                      <div class="col-md-4">
+                        <!--<input type="text" name="productGroup" class="form-control" placeholder="Product Category" required>-->
+                        <select type="option" name="productGroup" class="form-control" placeholder="Product Category" required>
+                            <option value="">Select Category</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Furniture">Furniture</option>
+                            <option value="Stationery">Stationery</option>
+                            <option value="Hardware">Hardware</option>
+                            <option value="Software">Software</option>
+                            <option value="Kitchenware">Kitchenware</option>
+                            <option value="Automotive">Automotive</option>
+                            <option value="Textiles">Textiles</option>
+                            <option value="Tools">Tools</option>
+                            <option value="Miscellaneous">Miscellaneous</option>    
+                    </div>
+                </div>
+
+                <div class="row-md-4">
+                    <div class="col-md-4">
+                        <input type="text" name="code" class="form-control" placeholder="Product Code" required>
+                    </div>
+                </div>
+
+                <div class="row-md-6">
+                    <div class="col-md-6">
+                        <input type="text" name="name" class="form-control" placeholder="Product Name" required>
+                    </div>
+                </div>
+                <div class="row-md-3">
+                    <div class="col-md-3">
+                        <input type="number" step="0.01" name="tradePrice" class="form-control" placeholder="Trade Price" required>
+                    </div>
+                </div>
+
+                    <div class="col-md-3">
+                        <input type="number" step="0.01" name="rrpPrice" class="form-control" placeholder="RRP Price" required>
+                    </div><br>
+
+                    <div class="col-md-12">
+                        <input type="file" name="image" class="form-control" required>
+                    </div><br>
+
+                    <div class="col-md-12">
+                        <button class="btn btn-primary">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- PRODUCT TABLE -->
+        <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Owner</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Product Category</th>
+                    <th>Trade</th>
+                    <th>RRP</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <% if (products && products.length > 0) { %>
+                <% products.forEach(product => { %>
+                <tr>
+                    
+                        <form action="/admin/products/update/<%= product.id %>" method="POST" enctype="multipart/form-data">
+                        <td><%= product.id %></td>
+                        <td><%= product.username %></td>
+                        <td>
+                            <input class="form-control" name="code" value="<%= product.code %>">
+                        </td>
+                        <td>
+                            <input class="form-control" name="name" value="<%= product.name %>">
+                        </td>
+                        <td>
+                            <input class="form-control" name="productGroup" value="<%= product.productGroup %>">
+                        </td>
+                        <td>
+                            <input class="form-control" name="tradePrice" value="<%= product.tradePrice %>">
+                        </td>
+                        <td>
+                            <input class="form-control" name="rrpPrice" value="<%= product.rrpPrice %>">
+                        </td>
+                       
+                        <td>
+                            <% if (product.image) { %>
+                                <img src="/uploads/<%= product.image %>" width="60" class="mb-2"><br>
+                            <% } %>
+
+                                <input type="file" name="image" class="form-control form-control-sm">
+                                <small class="text-muted">Leave empty to keep current image</small>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-success mb-1">Update</button>
+                            <a href="/admin/products/delete/<%= product.id %>"
+                               class="btn btn-sm btn-danger"
+                               onclick="return confirm('Delete this product?')">
+                               Delete
+                            </a>
+                        </td>
+                    </form>
+                </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="8" class="text-center">No products found</td>
+                </tr>
+            <% } %>
+
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Footer -->
+    <%- include('partials/footer.ejs') %>
+
+</body>
+</html>

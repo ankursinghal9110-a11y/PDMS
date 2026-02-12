@@ -21,3 +21,6 @@ tr, td, th, input
     text-align: center;
     width:50vw ;
 }
+main {
+  flex: 1; /* pushes footer down */
+}

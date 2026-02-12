@@ -5,7 +5,7 @@
         <%- include('partials/header.ejs') %>
     </head>
     <body> 
-            <link rel="stylesheet" href="public/css/navbar1.css">
+            <link rel="stylesheet" href="public/css/navbar.css">
             <%- include('partials/navbar1.ejs') %>
                 <h1 class="home-centre">Enter Login Details</h1><br>
                 <form action="/auth" method="post">
@@ -18,4 +18,6 @@
             <a class="login_submit_register" href="/register">Register</a>
             
     </body> 
+    <link rel="stylesheet" href="public/css/footer.css" class="container mt-3">
+        <%- include('partials/footer.ejs') %>
 </html>
