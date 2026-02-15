@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>PMDS Website</h1>
+  <script src="PDMS.js"></script>
+</body>
+</html>
